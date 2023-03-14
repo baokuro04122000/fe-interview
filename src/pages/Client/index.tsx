@@ -1,18 +1,22 @@
-import {useState} from 'react'
+import {useContext, useState} from 'react'
 import { useTranslation } from "react-i18next";
 import styles from './index.module.css'
 import Button from '../../common/Button/Button'
+import SocketContext from '../../contexts/socket.context';
+import {
+  BLUE_CLICK_EVENT,
+  ORANGE_CLICK_EVENT
+} from '../../constants/socket.constant'
 const Client = () => {
   const { t } = useTranslation("translation");
-  const [orange, setOrange] = useState(0);
-  const [blue, setBlue] = useState(0);
-
+  const { socket } = useContext(SocketContext).SocketState;
+  
   const handleClickOrange = () => {
-    console.log('here')
+    socket?.emit(ORANGE_CLICK_EVENT, {socketId: socket.id})
   }
 
   const handleClickBlue = () => {
-    console.log('blue')
+    socket?.emit(BLUE_CLICK_EVENT, {socketId: socket.id})
   }
 
   return (

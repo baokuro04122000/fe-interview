@@ -1,11 +1,9 @@
-
 import ReactDOM from "react-dom/client";
-
 import { BrowserRouter } from "react-router-dom";
-
-import App from "./App";
 import './i18n';
 import "./index.css";
+import App from "./App";
+import SocketContextComponent from './components/Socket/SocketContextComponent'
 
 
 const root = ReactDOM.createRoot(
@@ -13,6 +11,8 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <BrowserRouter>
-    <App />
+    <SocketContextComponent>
+      <App />
+    </SocketContextComponent>
   </BrowserRouter>
 );

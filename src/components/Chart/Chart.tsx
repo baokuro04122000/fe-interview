@@ -1,3 +1,4 @@
+import styles from './Chart.module.css'
 export type Props = {
   orangeClick: number,
   blueClick: number
@@ -5,8 +6,22 @@ export type Props = {
 const Chart = ({orangeClick, blueClick}: Props) => {
   return (
     <>
-      <span>{orangeClick}</span>
-      <span>{blueClick}</span>
+      <ul className={styles['chart']}>
+        <li className={styles['custom-li']}>
+          <span className={styles['custom-span']}
+           style={{
+            height: blueClick + '%'
+          }}>
+            Blue
+          </span>
+        </li>
+        <li className={styles['custom-li']}>
+          <span className={styles['custom-span']} style={{
+            height: orangeClick + '%'
+          }} >Orange</span>
+        </li>
+        
+      </ul>    
     </>
   )
 }
